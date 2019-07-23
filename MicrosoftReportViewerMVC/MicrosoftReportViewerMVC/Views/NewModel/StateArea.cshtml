@@ -1,0 +1,28 @@
+﻿@model IEnumerable<MicrosoftReportViewerMVC.Models.OutstandingAndActiveProject>
+
+@{
+    ViewBag.Title = "StateArea";
+}
+
+<table class="table">
+    <tr>
+        <th>Code</th>
+        <th>Developer_Name</th>
+        <th>Name</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Code)</td>
+            <td>@Html.DisplayFor(modelItem => item.Developer_Name)</td>
+            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+        </tr>
+    }
+</table>
+<div style="padding:10px; border:1px solid black">
+    <div><a href="@Url.Action("Report",new {id= "PDF"})"> Get Report PDF</a></div>
+    <div><a href="@Url.Action("Report",new {id= "Excel"})"> Get Report Excel</a></div>
+    <div><a href="@Url.Action("Report",new {id= "Word"})"> Get Report Word</a></div>
+    <div><a href="@Url.Action("Report",new {id= "Image"})"> Get Report Image</a></div>
+</div>
+
